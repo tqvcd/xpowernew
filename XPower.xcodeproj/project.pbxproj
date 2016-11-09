@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5524006B1DCD1FA500025F47 /* PointsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5524006A1DCD1FA500025F47 /* PointsTabViewController.swift */; };
+		5524006D1DD2682C00025F47 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5524006C1DD2682C00025F47 /* FavoritesTableViewController.swift */; };
+		5524006F1DD2686600025F47 /* RecentTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5524006E1DD2686600025F47 /* RecentTasksTableViewController.swift */; };
+		553BEE8D1D82E75400EA585E /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BEE8C1D82E75400EA585E /* ResetPasswordViewController.swift */; };
+		553BEE8F1D82ED8700EA585E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BEE8E1D82ED8700EA585E /* TabBarController.swift */; };
+		553BEE911D830F6100EA585E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BEE901D830F6100EA585E /* ReportViewController.swift */; };
+		553BEE931D83110D00EA585E /* EmailHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553BEE921D83110D00EA585E /* EmailHandler.swift */; };
+		555113111D80635F000825D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113101D80635F000825D0 /* AppDelegate.swift */; };
+		555113131D80635F000825D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113121D80635F000825D0 /* ViewController.swift */; };
+		555113161D80635F000825D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555113141D80635F000825D0 /* Main.storyboard */; };
+		555113191D80635F000825D0 /* XPower.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555113171D80635F000825D0 /* XPower.xcdatamodeld */; };
+		5551131E1D80635F000825D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5551131C1D80635F000825D0 /* LaunchScreen.storyboard */; };
+		555113261D8067A5000825D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113251D8067A5000825D0 /* LoginViewController.swift */; };
+		555113281D806A21000825D0 /* ChooseSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113271D806A21000825D0 /* ChooseSchoolViewController.swift */; };
+		5551132A1D8073E9000825D0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113291D8073E9000825D0 /* SignUpViewController.swift */; };
+		5551132C1D80803F000825D0 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5551132B1D80803F000825D0 /* HomeScreenViewController.swift */; };
+		5551132E1D809AB1000825D0 /* PointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5551132D1D809AB1000825D0 /* PointsViewController.swift */; };
+		555113301D809B9C000825D0 /* PointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5551132F1D809B9C000825D0 /* PointsTableViewController.swift */; };
+		555113321D80B02E000825D0 /* ObtainedPointsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555113311D80B02E000825D0 /* ObtainedPointsTableViewController.swift */; };
+		555DF2991D81FDFF00809D8F /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555DF2981D81FDFF00809D8F /* ScoreboardViewController.swift */; };
+		555DF29B1D825BDC00809D8F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555DF29A1D825BDC00809D8F /* SettingViewController.swift */; };
+		555F4A611D81097700DFEDB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555F4A601D81097700DFEDB6 /* GoogleService-Info.plist */; };
+		555F4A691D81C45400DFEDB6 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F4A681D81C45400DFEDB6 /* ChatViewController.swift */; };
+		555F4A6B1D81C73D00DFEDB6 /* Avartar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F4A6A1D81C73D00DFEDB6 /* Avartar.swift */; };
+		555F4A6D1D81C76200DFEDB6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F4A6C1D81C76200DFEDB6 /* ImageCache.swift */; };
+		555F4A6F1D81CBA300DFEDB6 /* UploadAvartarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555F4A6E1D81CBA300DFEDB6 /* UploadAvartarViewController.swift */; };
+		55872D841DB5360F006D1BD6 /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55872D831DB5360F006D1BD6 /* TestTableViewController.swift */; };
+		55872D861DB5388E006D1BD6 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55872D851DB5388E006D1BD6 /* View.xib */; };
+		558E29A61D826B4700288848 /* TouchIdKeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 558E29A41D826B4700288848 /* TouchIdKeyChainHelper.m */; };
+		5592AAE11D873DC1000FD135 /* FriendHomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5592AAE01D873DC1000FD135 /* FriendHomeScreenViewController.swift */; };
+		5592AAE51D8855CC000FD135 /* RightMenuTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5592AAE31D8855CC000FD135 /* RightMenuTableController.swift */; };
+		5592AAE71D8858EA000FD135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5592AAE61D8858EA000FD135 /* Assets.xcassets */; };
+		5592AAE91D887D2F000FD135 /* InvitationObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5592AAE81D887D2F000FD135 /* InvitationObservation.swift */; };
+		55BA51BB1D86FF8E007C0F69 /* ModalCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51BA1D86FF8E007C0F69 /* ModalCalendarViewController.swift */; };
+		55BA51BD1D871303007C0F69 /* NewSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51BC1D871303007C0F69 /* NewSettingViewController.swift */; };
+		55BA51BF1D871525007C0F69 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51BE1D871525007C0F69 /* ChangePasswordViewController.swift */; };
+		55BA51C11D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51C01D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift */; };
+		55C56BF01DD36F2C00E5ABD3 /* FriendAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BED1DD36F2C00E5ABD3 /* FriendAddViewController.swift */; };
+		55C56BF11DD36F2C00E5ABD3 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BEE1DD36F2C00E5ABD3 /* FriendsTableViewController.swift */; };
+		55C56BF21DD36F2C00E5ABD3 /* InvitationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BEF1DD36F2C00E5ABD3 /* InvitationTableViewController.swift */; };
+		55C56BF41DD372B100E5ABD3 /* CustomerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C56BF31DD372B100E5ABD3 /* CustomerCellView.xib */; };
+		55C56BF61DD3784B00E5ABD3 /* CustomerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BF51DD3784B00E5ABD3 /* CustomerTableViewCell.swift */; };
+		C7E82481882EA4547142EC12 /* Pods_XPower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDE0A8B13A51A3386FB2F3A /* Pods_XPower.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F96CE663F433502A051DAA7 /* Pods-XPower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPower.release.xcconfig"; path = "Pods/Target Support Files/Pods-XPower/Pods-XPower.release.xcconfig"; sourceTree = "<group>"; };
+		5524006A1DCD1FA500025F47 /* PointsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsTabViewController.swift; sourceTree = "<group>"; };
+		5524006C1DD2682C00025F47 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		5524006E1DD2686600025F47 /* RecentTasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTasksTableViewController.swift; sourceTree = "<group>"; };
+		553BEE8C1D82E75400EA585E /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		553BEE8E1D82ED8700EA585E /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		553BEE901D830F6100EA585E /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		553BEE921D83110D00EA585E /* EmailHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailHandler.swift; sourceTree = "<group>"; };
+		5551130D1D80635F000825D0 /* XPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		555113101D80635F000825D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		555113121D80635F000825D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		555113151D80635F000825D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		555113181D80635F000825D0 /* XPower.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XPower.xcdatamodel; sourceTree = "<group>"; };
+		5551131D1D80635F000825D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5551131F1D80635F000825D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555113251D8067A5000825D0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		555113271D806A21000825D0 /* ChooseSchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSchoolViewController.swift; sourceTree = "<group>"; };
+		555113291D8073E9000825D0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5551132B1D80803F000825D0 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		5551132D1D809AB1000825D0 /* PointsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsViewController.swift; sourceTree = "<group>"; };
+		5551132F1D809B9C000825D0 /* PointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsTableViewController.swift; sourceTree = "<group>"; };
+		555113311D80B02E000825D0 /* ObtainedPointsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObtainedPointsTableViewController.swift; sourceTree = "<group>"; };
+		555DF2981D81FDFF00809D8F /* ScoreboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
+		555DF29A1D825BDC00809D8F /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		555F4A601D81097700DFEDB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		555F4A681D81C45400DFEDB6 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		555F4A6A1D81C73D00DFEDB6 /* Avartar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avartar.swift; sourceTree = "<group>"; };
+		555F4A6C1D81C76200DFEDB6 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		555F4A6E1D81CBA300DFEDB6 /* UploadAvartarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadAvartarViewController.swift; sourceTree = "<group>"; };
+		55872D831DB5360F006D1BD6 /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
+		55872D851DB5388E006D1BD6 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		558E29A31D826B4600288848 /* XPower-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XPower-Bridging-Header.h"; sourceTree = "<group>"; };
+		558E29A41D826B4700288848 /* TouchIdKeyChainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIdKeyChainHelper.m; sourceTree = "<group>"; };
+		558E29A51D826B4700288848 /* TouchIdKeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchIdKeyChainHelper.h; sourceTree = "<group>"; };
+		5592AAE01D873DC1000FD135 /* FriendHomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHomeScreenViewController.swift; sourceTree = "<group>"; };
+		5592AAE31D8855CC000FD135 /* RightMenuTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightMenuTableController.swift; sourceTree = "<group>"; };
+		5592AAE61D8858EA000FD135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5592AAE81D887D2F000FD135 /* InvitationObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationObservation.swift; sourceTree = "<group>"; };
+		55BA51BA1D86FF8E007C0F69 /* ModalCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalCalendarViewController.swift; sourceTree = "<group>"; };
+		55BA51BC1D871303007C0F69 /* NewSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSettingViewController.swift; sourceTree = "<group>"; };
+		55BA51BE1D871525007C0F69 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		55BA51C01D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOnOrOffTouchIdViewController.swift; sourceTree = "<group>"; };
+		55C56BED1DD36F2C00E5ABD3 /* FriendAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddViewController.swift; sourceTree = "<group>"; };
+		55C56BEE1DD36F2C00E5ABD3 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		55C56BEF1DD36F2C00E5ABD3 /* InvitationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationTableViewController.swift; sourceTree = "<group>"; };
+		55C56BF31DD372B100E5ABD3 /* CustomerCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerCellView.xib; sourceTree = "<group>"; };
+		55C56BF51DD3784B00E5ABD3 /* CustomerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTableViewCell.swift; sourceTree = "<group>"; };
+		8FDE0A8B13A51A3386FB2F3A /* Pods_XPower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XPower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68E4E226040BAB67642ABE1 /* Pods-XPower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XPower.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XPower/Pods-XPower.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5551130A1D80635F000825D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E82481882EA4547142EC12 /* Pods_XPower.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2393FC5AF6CB559E029B5F9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D68E4E226040BAB67642ABE1 /* Pods-XPower.debug.xcconfig */,
+				3F96CE663F433502A051DAA7 /* Pods-XPower.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		555113041D80635F000825D0 = {
+			isa = PBXGroup;
+			children = (
+				5551130F1D80635F000825D0 /* XPower */,
+				5551130E1D80635F000825D0 /* Products */,
+				2393FC5AF6CB559E029B5F9C /* Pods */,
+				F6F9348EF8B9AAF3A515582A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5551130E1D80635F000825D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5551130D1D80635F000825D0 /* XPower.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5551130F1D80635F000825D0 /* XPower */ = {
+			isa = PBXGroup;
+			children = (
+				55C56BED1DD36F2C00E5ABD3 /* FriendAddViewController.swift */,
+				55C56BEE1DD36F2C00E5ABD3 /* FriendsTableViewController.swift */,
+				55C56BEF1DD36F2C00E5ABD3 /* InvitationTableViewController.swift */,
+				5592AAE61D8858EA000FD135 /* Assets.xcassets */,
+				5592AAE81D887D2F000FD135 /* InvitationObservation.swift */,
+				5592AAE31D8855CC000FD135 /* RightMenuTableController.swift */,
+				55BA51BA1D86FF8E007C0F69 /* ModalCalendarViewController.swift */,
+				553BEE921D83110D00EA585E /* EmailHandler.swift */,
+				558E29A41D826B4700288848 /* TouchIdKeyChainHelper.m */,
+				558E29A51D826B4700288848 /* TouchIdKeyChainHelper.h */,
+				555F4A6C1D81C76200DFEDB6 /* ImageCache.swift */,
+				555F4A6A1D81C73D00DFEDB6 /* Avartar.swift */,
+				555F4A681D81C45400DFEDB6 /* ChatViewController.swift */,
+				555F4A601D81097700DFEDB6 /* GoogleService-Info.plist */,
+				555113101D80635F000825D0 /* AppDelegate.swift */,
+				555113121D80635F000825D0 /* ViewController.swift */,
+				555113141D80635F000825D0 /* Main.storyboard */,
+				55872D851DB5388E006D1BD6 /* View.xib */,
+				5551131C1D80635F000825D0 /* LaunchScreen.storyboard */,
+				5551131F1D80635F000825D0 /* Info.plist */,
+				555113171D80635F000825D0 /* XPower.xcdatamodeld */,
+				555113251D8067A5000825D0 /* LoginViewController.swift */,
+				555113271D806A21000825D0 /* ChooseSchoolViewController.swift */,
+				555113291D8073E9000825D0 /* SignUpViewController.swift */,
+				5551132B1D80803F000825D0 /* HomeScreenViewController.swift */,
+				5551132D1D809AB1000825D0 /* PointsViewController.swift */,
+				5551132F1D809B9C000825D0 /* PointsTableViewController.swift */,
+				555113311D80B02E000825D0 /* ObtainedPointsTableViewController.swift */,
+				555F4A6E1D81CBA300DFEDB6 /* UploadAvartarViewController.swift */,
+				555DF2981D81FDFF00809D8F /* ScoreboardViewController.swift */,
+				555DF29A1D825BDC00809D8F /* SettingViewController.swift */,
+				558E29A31D826B4600288848 /* XPower-Bridging-Header.h */,
+				553BEE8C1D82E75400EA585E /* ResetPasswordViewController.swift */,
+				553BEE8E1D82ED8700EA585E /* TabBarController.swift */,
+				553BEE901D830F6100EA585E /* ReportViewController.swift */,
+				55BA51BC1D871303007C0F69 /* NewSettingViewController.swift */,
+				55BA51BE1D871525007C0F69 /* ChangePasswordViewController.swift */,
+				55BA51C01D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift */,
+				5592AAE01D873DC1000FD135 /* FriendHomeScreenViewController.swift */,
+				55872D831DB5360F006D1BD6 /* TestTableViewController.swift */,
+				5524006A1DCD1FA500025F47 /* PointsTabViewController.swift */,
+				5524006C1DD2682C00025F47 /* FavoritesTableViewController.swift */,
+				5524006E1DD2686600025F47 /* RecentTasksTableViewController.swift */,
+				55C56BF31DD372B100E5ABD3 /* CustomerCellView.xib */,
+				55C56BF51DD3784B00E5ABD3 /* CustomerTableViewCell.swift */,
+			);
+			path = XPower;
+			sourceTree = "<group>";
+		};
+		F6F9348EF8B9AAF3A515582A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FDE0A8B13A51A3386FB2F3A /* Pods_XPower.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5551130C1D80635F000825D0 /* XPower */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 555113221D80635F000825D0 /* Build configuration list for PBXNativeTarget "XPower" */;
+			buildPhases = (
+				48E48EEE943A9E991B32230E /* [CP] Check Pods Manifest.lock */,
+				555113091D80635F000825D0 /* Sources */,
+				5551130A1D80635F000825D0 /* Frameworks */,
+				5551130B1D80635F000825D0 /* Resources */,
+				3A07FA15FA61EA0F0D8A344B /* [CP] Embed Pods Frameworks */,
+				535CEC243E7CB10D16DA8FFB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XPower;
+			productName = XPower;
+			productReference = 5551130D1D80635F000825D0 /* XPower.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		555113051D80635F000825D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = SoftwareMerchant;
+				TargetAttributes = {
+					5551130C1D80635F000825D0 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = KKX8KEUZ6R;
+					};
+				};
+			};
+			buildConfigurationList = 555113081D80635F000825D0 /* Build configuration list for PBXProject "XPower" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 555113041D80635F000825D0;
+			productRefGroup = 5551130E1D80635F000825D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5551130C1D80635F000825D0 /* XPower */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5551130B1D80635F000825D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55C56BF41DD372B100E5ABD3 /* CustomerCellView.xib in Resources */,
+				5551131E1D80635F000825D0 /* LaunchScreen.storyboard in Resources */,
+				55872D861DB5388E006D1BD6 /* View.xib in Resources */,
+				555F4A611D81097700DFEDB6 /* GoogleService-Info.plist in Resources */,
+				5592AAE71D8858EA000FD135 /* Assets.xcassets in Resources */,
+				555113161D80635F000825D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A07FA15FA61EA0F0D8A344B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XPower/Pods-XPower-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48E48EEE943A9E991B32230E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		535CEC243E7CB10D16DA8FFB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XPower/Pods-XPower-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		555113091D80635F000825D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5592AAE51D8855CC000FD135 /* RightMenuTableController.swift in Sources */,
+				5524006B1DCD1FA500025F47 /* PointsTabViewController.swift in Sources */,
+				5551132A1D8073E9000825D0 /* SignUpViewController.swift in Sources */,
+				555F4A6D1D81C76200DFEDB6 /* ImageCache.swift in Sources */,
+				5551132E1D809AB1000825D0 /* PointsViewController.swift in Sources */,
+				555113321D80B02E000825D0 /* ObtainedPointsTableViewController.swift in Sources */,
+				55C56BF01DD36F2C00E5ABD3 /* FriendAddViewController.swift in Sources */,
+				553BEE8D1D82E75400EA585E /* ResetPasswordViewController.swift in Sources */,
+				55C56BF11DD36F2C00E5ABD3 /* FriendsTableViewController.swift in Sources */,
+				555113261D8067A5000825D0 /* LoginViewController.swift in Sources */,
+				5524006F1DD2686600025F47 /* RecentTasksTableViewController.swift in Sources */,
+				55BA51BB1D86FF8E007C0F69 /* ModalCalendarViewController.swift in Sources */,
+				555113281D806A21000825D0 /* ChooseSchoolViewController.swift in Sources */,
+				555113131D80635F000825D0 /* ViewController.swift in Sources */,
+				555F4A6F1D81CBA300DFEDB6 /* UploadAvartarViewController.swift in Sources */,
+				55BA51BF1D871525007C0F69 /* ChangePasswordViewController.swift in Sources */,
+				55C56BF21DD36F2C00E5ABD3 /* InvitationTableViewController.swift in Sources */,
+				553BEE931D83110D00EA585E /* EmailHandler.swift in Sources */,
+				558E29A61D826B4700288848 /* TouchIdKeyChainHelper.m in Sources */,
+				5592AAE91D887D2F000FD135 /* InvitationObservation.swift in Sources */,
+				553BEE911D830F6100EA585E /* ReportViewController.swift in Sources */,
+				555DF2991D81FDFF00809D8F /* ScoreboardViewController.swift in Sources */,
+				55BA51BD1D871303007C0F69 /* NewSettingViewController.swift in Sources */,
+				55C56BF61DD3784B00E5ABD3 /* CustomerTableViewCell.swift in Sources */,
+				5524006D1DD2682C00025F47 /* FavoritesTableViewController.swift in Sources */,
+				5592AAE11D873DC1000FD135 /* FriendHomeScreenViewController.swift in Sources */,
+				553BEE8F1D82ED8700EA585E /* TabBarController.swift in Sources */,
+				555113191D80635F000825D0 /* XPower.xcdatamodeld in Sources */,
+				555113301D809B9C000825D0 /* PointsTableViewController.swift in Sources */,
+				555F4A691D81C45400DFEDB6 /* ChatViewController.swift in Sources */,
+				55BA51C11D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift in Sources */,
+				555113111D80635F000825D0 /* AppDelegate.swift in Sources */,
+				555DF29B1D825BDC00809D8F /* SettingViewController.swift in Sources */,
+				5551132C1D80803F000825D0 /* HomeScreenViewController.swift in Sources */,
+				555F4A6B1D81C73D00DFEDB6 /* Avartar.swift in Sources */,
+				55872D841DB5360F006D1BD6 /* TestTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		555113141D80635F000825D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				555113151D80635F000825D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5551131C1D80635F000825D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5551131D1D80635F000825D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		555113201D80635F000825D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		555113211D80635F000825D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		555113231D80635F000825D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D68E4E226040BAB67642ABE1 /* Pods-XPower.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = XPower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoftwareMerchant.Xpower;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XPower/XPower-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		555113241D80635F000825D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F96CE663F433502A051DAA7 /* Pods-XPower.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = XPower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SoftwareMerchant.Xpower;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XPower/XPower-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		555113081D80635F000825D0 /* Build configuration list for PBXProject "XPower" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555113201D80635F000825D0 /* Debug */,
+				555113211D80635F000825D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		555113221D80635F000825D0 /* Build configuration list for PBXNativeTarget "XPower" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				555113231D80635F000825D0 /* Debug */,
+				555113241D80635F000825D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		555113171D80635F000825D0 /* XPower.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				555113181D80635F000825D0 /* XPower.xcdatamodel */,
+			);
+			currentVersion = 555113181D80635F000825D0 /* XPower.xcdatamodel */;
+			path = XPower.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 555113051D80635F000825D0 /* Project object */;
+}
