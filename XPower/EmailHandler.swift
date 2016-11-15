@@ -20,7 +20,7 @@ class EmailHandler: NSObject, SKPSMTPMessageDelegate {
         confirmEmail.relayHost = "smtp.gmail.com"
         confirmEmail.requiresAuth = true
         confirmEmail.login = "xpowernew.service@gmail.com"
-        confirmEmail.pass = "Station1"
+        confirmEmail.pass = "Xpower2016!@#"
         confirmEmail.wantsSecure = true
         confirmEmail.delegate = self
         

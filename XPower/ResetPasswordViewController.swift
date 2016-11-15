@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import AFNetworking
 
 class ResetPasswordViewController: UIViewController {
 
@@ -37,14 +38,38 @@ class ResetPasswordViewController: UIViewController {
 
     @IBAction func resetPassword(sender: AnyObject) {
         
-        do{
+//        do{
+//            
+//            try PFUser.requestPasswordResetForEmail(self.resetpassword.text!)
+//            
+//        }catch{
+//            
+//            print("reset password error")
+//        }
+        
+        var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+        
+        var parametersResetEmail = ["Email":self.resetpassword.text!]
+        
+        print(self.resetpassword.text!)
+        
+        
+        manager.POST("http://www.consoaring.com/UserService.svc/resetpassword", parameters: parametersResetEmail, success: {
+            (task, response) in
             
-            try PFUser.requestPasswordResetForEmail(self.resetpassword.text!)
+               print(response)
             
-        }catch{
-            
-            print("reset password error")
-        }
+            }, failure: {
+                (task, error) in
+                print(error.localizedDescription)
+                
+        })
+
+        
         
         navigationController!.popViewControllerAnimated(true)
         

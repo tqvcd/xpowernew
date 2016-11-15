@@ -8,4 +8,5 @@
 #ifndef XPower_Bridging_Header_h
 #define XPower_Bridging_Header_h
 #import "TouchIdKeyChainHelper.h"
+#import "KeychainWrapper.h"
 #endif /* XPower_Bridging_Header_h */

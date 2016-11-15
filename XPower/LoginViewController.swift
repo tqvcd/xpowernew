@@ -9,11 +9,14 @@
 import UIKit
 import Parse
 import FirebaseDatabase
+import AFNetworking
 
 class LoginViewController: UIViewController {
     
     var helper:TouchIdKeyChainHelper?
-
+     var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    
+    let myKeychainwrapper = KeychainWrapper()
     var loginName:String?
     var loginPassword:String?
 
@@ -61,79 +64,162 @@ class LoginViewController: UIViewController {
             loginPassword = self.password.text
             }
             
-            dispatch_async(dispatch_get_main_queue()){
-         
-                PFUser.logInWithUsernameInBackground(self.loginName!, password: self.loginPassword!){
-                    
-                    (user:PFUser?, error:NSError?)->Void in
-                    
-                    if(user != nil){
-                        dispatch_async(dispatch_get_main_queue()){
-                            
-                            let userDefaults = NSUserDefaults.standardUserDefaults()
-                            
-                            userDefaults.setObject(self.loginPassword, forKey: "loginPwd")
-                            userDefaults.setObject(self.loginName, forKey: "username")
-                  
-                            if userDefaults.objectForKey("useTouchId") != nil &&  userDefaults.objectForKey("useTouchId") as! Bool {
+            manager.requestSerializer = AFJSONRequestSerializer()
+            manager.responseSerializer = AFJSONResponseSerializer()
+            manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+            
+            
+//            var oldpassword = myKeychainwrapper.myObjectForKey("v_Data") as! String
+//            
+//            print(oldpassword)
+//            
+//            myKeychainwrapper.mySetObject("22", forKey: kSecValueData)
+//            myKeychainwrapper.writeToKeychain()
+            
+//            var newpassword = myKeychainwrapper.myObjectForKey("v_Data") as! String
+//            
+//            print(newpassword)
 
-                                self.helper!.deleteItemAsync()
-                                
-                                userDefaults.setValue(true, forKey: "useTouchId")
-                                let namepluspassword = "\(userDefaults.objectForKey("loginPwd")!) \(userDefaults.objectForKey("username")!)"
-                                
-                                self.helper!.addTouchIDItemAsync(namepluspassword.dataUsingEncoding(NSUTF8StringEncoding)!)
-                                
-                            }
-
-                            let rootRef = FIRDatabase.database().reference()
-                            
-                            let userRef = rootRef.child("user")
-                            
-                            let userItemRef = userRef.childByAutoId()
-                            
-                            let query = userRef.queryOrderedByChild("useremail").queryEqualToValue(PFUser.currentUser()!.email!)
-                            
-                            
-                            query.observeEventType(.Value, withBlock: {
-                                
-                                snapShot in
-                                
-                                
-                                let test = (snapShot.value as? NSNull)
-                                
-                                
-                                if test != nil && (snapShot.value as? NSNull)!.isEqual(NSNull.init()) {
-                                    
-                                    userItemRef.setValue(["useremail": PFUser.currentUser()!.email!, "username":PFUser.currentUser()!.username!])
-                                    
-                                    
-                                }
-                            })
+            let paramsUserAuthentication = ["Username":self.loginName!, "Password":self.loginPassword!]
+            
+            manager.POST("http://www.consoaring.com/UserService.svc/userauthentication", parameters: paramsUserAuthentication, success: {
+                (task, response) in
+                print(response)
                 
-                            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("homescreen") as! HomeScreenViewController
-                     
-                            self.navigationController?.pushViewController(viewController, animated: true)
-                        }
-                    }else{
-                        
-                        let alertView = UIAlertView.init(title: "Error", message: error?.localizedDescription, delegate: self, cancelButtonTitle: "OK")
-                        alertView.show()
-                    }
-                    
+                var responseDict = response as! [String:AnyObject]
+                
+                if ((responseDict["result"]?.containsString("Failure")) != nil) {
+                    return
                 }
                 
                 
-                self.userName.text = ""
-                self.password.text = ""
+                var password = self.myKeychainwrapper.myObjectForKey("v_Data") as? String
                 
-            }
+                if password == nil {
+                    
+                    self.myKeychainwrapper.mySetObject(self.loginPassword!, forKey: kSecValueData)
+                    self.myKeychainwrapper.writeToKeychain()
+                }else{
+                    
+                    if password != self.loginPassword!{
+                        self.myKeychainwrapper.mySetObject(self.loginPassword!, forKey: kSecValueData)
+                        self.myKeychainwrapper.writeToKeychain()
+                        self.loginPassword = password
+                        
+                    }
+                    
+                    self.loginBackground()
+
+                    
+                }
+                
+
+                
+                
+                }, failure: {
+                    (task, error) in
+                    print(error.localizedDescription)
+                    
+            })
+
+            
+
+            
 
         }
   
         
     }
     
+    
+    func loginBackground() {
+        
+     dispatch_async(dispatch_get_main_queue()){
+            
+            PFUser.logInWithUsernameInBackground(self.loginName!, password: self.loginPassword!){
+                
+                (user:PFUser?, error:NSError?)->Void in
+                
+                if(user != nil){
+                    dispatch_async(dispatch_get_main_queue()){
+                        
+                        PFUser.currentUser()!.password = self.myKeychainwrapper.myObjectForKey("v_Data") as? String
+
+                        print(self.myKeychainwrapper.myObjectForKey("v_Data") as? String)
+                        
+                        do{
+                            try PFUser.currentUser()!.save()
+                        }catch{
+                            
+                            print("reset password error")
+                        }
+
+                        
+                        
+                        let userDefaults = NSUserDefaults.standardUserDefaults()
+                        
+                        userDefaults.setObject(self.loginPassword, forKey: "loginPwd")
+                        userDefaults.setObject(self.loginName, forKey: "username")
+                        
+                        if userDefaults.objectForKey("useTouchId") != nil &&  userDefaults.objectForKey("useTouchId") as! Bool {
+                            
+                            self.helper!.deleteItemAsync()
+                            
+                            userDefaults.setValue(true, forKey: "useTouchId")
+                            let namepluspassword = "\(userDefaults.objectForKey("loginPwd")!) \(userDefaults.objectForKey("username")!)"
+                            
+                            self.helper!.addTouchIDItemAsync(namepluspassword.dataUsingEncoding(NSUTF8StringEncoding)!)
+                            
+                            
+                            
+                        }
+                        
+                        let rootRef = FIRDatabase.database().reference()
+                        
+                        let userRef = rootRef.child("user")
+                        
+                        let userItemRef = userRef.childByAutoId()
+                        
+                        let query = userRef.queryOrderedByChild("useremail").queryEqualToValue(PFUser.currentUser()!.email!)
+                        
+                        
+                        query.observeEventType(.Value, withBlock: {
+                            
+                            snapShot in
+                            
+                            
+                            let test = (snapShot.value as? NSNull)
+                            
+                            
+                            if test != nil && (snapShot.value as? NSNull)!.isEqual(NSNull.init()) {
+                                
+                                userItemRef.setValue(["useremail": PFUser.currentUser()!.email!, "username":PFUser.currentUser()!.username!])
+                                
+                                
+                            }
+                        })
+                        
+                        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("homescreen") as! HomeScreenViewController
+                        
+                        self.navigationController?.pushViewController(viewController, animated: true)
+                    }
+                }else{
+                    
+                    let alertView = UIAlertView.init(title: "Error", message: error?.localizedDescription, delegate: self, cancelButtonTitle: "OK")
+                    alertView.show()
+                }
+                
+            }
+            
+            
+            self.userName.text = ""
+            self.password.text = ""
+            
+        }
+        
+        
+        
+    }
     
     
     override func viewWillAppear(animated: Bool) {

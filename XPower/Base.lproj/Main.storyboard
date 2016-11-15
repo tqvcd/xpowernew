@@ -191,7 +191,7 @@
         <!--Recent Tasks Table View Controller-->
         <scene sceneID="d3h-r8-MJh">
             <objects>
-                <tableViewController id="LhH-uR-vVb" customClass="RecentTasksTableViewController" customModule="XPower" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="recent" id="LhH-uR-vVb" customClass="RecentTasksTableViewController" customModule="XPower" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favoritecell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QSg-f3-fmB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,6 +212,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="ZX2-dI-bcB"/>
+                    <connections>
+                        <outlet property="recenttableview" destination="QSg-f3-fmB" id="DRr-5n-MdC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUP-LM-pO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -779,10 +782,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wA5-N8-HF5">
-                                <rect key="frame" x="40" y="114" width="520" height="300"/>
+                                <rect key="frame" x="40" y="84" width="520" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Jdi-J1-RhO"/>
+                                    <constraint firstAttribute="height" constant="256" id="Jdi-J1-RhO"/>
                                     <constraint firstAttribute="height" constant="128" id="hoS-uK-Nvb"/>
                                 </constraints>
                                 <variation key="default">
@@ -792,13 +795,13 @@
                                 </variation>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Deeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-PN-u5f">
-                                <rect key="frame" x="246" y="434" width="108" height="24"/>
+                                <rect key="frame" x="246" y="360" width="108" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLS-56-Elh">
-                                <rect key="frame" x="262" y="606" width="76" height="30"/>
+                                <rect key="frame" x="262" y="524" width="76" height="30"/>
                                 <state key="normal" title="Pick a date">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -807,10 +810,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-S8-AGN">
-                                <rect key="frame" x="40" y="468" width="520" height="128"/>
+                                <rect key="frame" x="40" y="394" width="520" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="nyW-gH-lqv"/>
+                                    <constraint firstAttribute="height" constant="120" id="nyW-gH-lqv"/>
                                 </constraints>
                             </tableView>
                         </subviews>
@@ -818,7 +821,7 @@
                         <constraints>
                             <constraint firstItem="Gfm-PN-u5f" firstAttribute="top" secondItem="wA5-N8-HF5" secondAttribute="bottom" constant="20" id="9hD-pR-Boe"/>
                             <constraint firstItem="VAw-S8-AGN" firstAttribute="leading" secondItem="s38-j5-w6t" secondAttribute="leading" constant="40" id="FCC-1x-Txb"/>
-                            <constraint firstItem="wA5-N8-HF5" firstAttribute="top" secondItem="f2f-ep-hGM" secondAttribute="bottom" constant="60" id="Fxq-0E-AC0"/>
+                            <constraint firstItem="wA5-N8-HF5" firstAttribute="top" secondItem="f2f-ep-hGM" secondAttribute="bottom" constant="30" id="Fxq-0E-AC0"/>
                             <constraint firstItem="Gfm-PN-u5f" firstAttribute="centerX" secondItem="lLS-56-Elh" secondAttribute="centerX" id="IFa-6C-pdZ"/>
                             <constraint firstItem="wA5-N8-HF5" firstAttribute="leading" secondItem="s38-j5-w6t" secondAttribute="leadingMargin" id="K5S-oW-DmY"/>
                             <constraint firstItem="f2f-ep-hGM" firstAttribute="centerX" secondItem="s38-j5-w6t" secondAttribute="centerX" id="KIF-tV-fTM"/>

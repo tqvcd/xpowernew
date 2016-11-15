@@ -269,6 +269,7 @@ class PointsTableViewController: UITableViewController{
            manager.POST("http://www.consoaring.com/PointService.svc/adddeeds", parameters: paramsUserAddDeeds, success: {
                         (task, response) in
                         print(response)
+            NSNotificationCenter.defaultCenter().postNotificationName("addtasks", object: self)
         
                         }, failure: {
                             (task, error) in
@@ -293,7 +294,7 @@ class PointsTableViewController: UITableViewController{
                         
           totalScoreItem.setValue(totalScoreMessage)
             
-          schoolTotalScore.setValue(totalScoreMessage)
+          schooltotalScoreItem.setValue(totalScoreMessage)
         
         }
   

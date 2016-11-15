@@ -12,16 +12,19 @@ import Parse
 
 class RecentTasksTableViewController: UITableViewController {
     
+    @IBOutlet var recenttableview: UITableView!
     var responseRecentArray = [String]()
-
+    
+    
+    static let sharedRecentTasksInstance = RecentTasksTableViewController()
+    
+    var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.registerNib(UINib.init(nibName: "CustomerCellView", bundle: nil), forCellReuseIdentifier: "customercell")
-
-        
-        var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        
         
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
@@ -46,32 +49,48 @@ class RecentTasksTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        var paramsUsername = ["Username":PFUser.currentUser()!.username!]
-        
-        manager.POST("http://www.consoaring.com/PointService.svc/getrecentdeeds", parameters: paramsUsername, success: {
-                (task, response) in
-        
-                  let responseRecentArray = response as! [AnyObject]
-        
-                   for recent in responseRecentArray{
-        
-                        var recentDict = recent as! [String:String]
-        
-                        self.responseRecentArray.append(recentDict["deed"]!)
-        
-                    }
-        
-            
-                     self.tableView.reloadData()
-        
-                    }, failure: {
-                            (task, error) in
-                            print(error.localizedDescription)
-                        
-                })
-
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        var paramsUsername = ["Username":PFUser.currentUser()!.username!]
+        
+        self.responseRecentArray = NSUserDefaults.standardUserDefaults().objectForKey("recenttasks") as! [String]
+        
+        AppDelegate.recentTasksinstance = self;
+
+        dispatch_async(dispatch_get_main_queue(), {
+            self.recenttableview.reloadData()
+            
+        })
+        
+       
+        
+//        manager.POST("http://www.consoaring.com/PointService.svc/getrecentdeeds", parameters: paramsUsername, success: {
+//            (task, response) in
+//            
+//            let responseRecentArray = response as! [AnyObject]
+//            
+//            for recent in responseRecentArray{
+//                
+//                var recentDict = recent as! [String:String]
+//                
+//                self.responseRecentArray.append(recentDict["deed"]!)
+//                
+//            }
+//            
+//            
+//            self.tableView.reloadData()
+//            
+//            }, failure: {
+//                (task, error) in
+//                print(error.localizedDescription)
+//                
+//        })
+
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,6 +115,8 @@ class RecentTasksTableViewController: UITableViewController {
 
         // Configure the cell...
         
+        self.responseRecentArray = NSUserDefaults.standardUserDefaults().objectForKey("recenttasks") as! [String]
+        
         cell.customerlabel.text = self.responseRecentArray[indexPath.row]
         
         cell.customerlabel.textColor = UIColor.whiteColor()
@@ -113,6 +134,48 @@ class RecentTasksTableViewController: UITableViewController {
     }
 
     
+    func updateRecentTasks() {
+        
+        var paramsUsername = ["Username":PFUser.currentUser()!.username!]
+        
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+        
+        
+        manager.POST("http://www.consoaring.com/PointService.svc/getrecentdeeds", parameters: paramsUsername, success: {
+            (task, response) in
+            
+            self.responseRecentArray = [String]()
+            
+            let responseRecentArray = response as! [AnyObject]
+            
+            print(responseRecentArray)
+            
+            for recent in responseRecentArray{
+                
+                var recentDict = recent as! [String:String]
+                
+                self.responseRecentArray.append(recentDict["deed"]!)
+                
+            }
+            
+            NSUserDefaults.standardUserDefaults().setObject(self.responseRecentArray, forKey: "recenttasks")
+            
+            if let instance = AppDelegate.recentTasksinstance{
+                
+                print(instance.tableView)
+                instance.tableView.reloadData()
+                
+            }
+            }, failure: {
+                (task, error) in
+                print(error.localizedDescription)
+                
+        })
+
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

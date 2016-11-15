@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import Parse
+import AFNetworking
 
 class ScoreboardViewController: UIViewController {
 
@@ -20,12 +21,17 @@ class ScoreboardViewController: UIViewController {
     var schoolNameText:String?
     var schoolPointsText:String?
     
+    let manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+
+    static let scoreboardViewControllerInstance = ScoreboardViewController()
+    
     @IBOutlet weak var schoolpoints: UILabel!
     @IBOutlet weak var schoolname: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
         
         let img = UIImage(named: "scoreboard")
         
@@ -67,13 +73,13 @@ class ScoreboardViewController: UIViewController {
             }
             
             
-            self.schoolpoints.text = String(schoolscores)
+//            self.schoolpoints.text = String(schoolscores)
+//            
+//            self.schoolname.text = PFUser.currentUser()!.objectForKey("schoolname") as! String
+//            
+//            self.schoolname.setNeedsDisplay()
+//            self.schoolpoints.setNeedsDisplay()
             
-            self.schoolname.text = PFUser.currentUser()!.objectForKey("schoolname") as! String
-            
-            self.schoolname.setNeedsDisplay()
-            self.schoolpoints.setNeedsDisplay()
-             
         })
         
         let anotherquery = totalScoreRef.queryOrderedByChild("schoolname").queryEqualToValue(anotherschoolname?.text).observeEventType(.Value, withBlock: {
@@ -96,12 +102,12 @@ class ScoreboardViewController: UIViewController {
                 
             }
             
-            self.anotherschoolpoints.text = String(anotherSchoolScores)
-                        
-            self.anotherschoolname.text = (userDefaults.objectForKey("schoolnamedictionary") as![String:String])[self.schoolname.text!]
-            
-            self.anotherschoolname.setNeedsDisplay()
-            self.anotherschoolpoints.setNeedsDisplay()
+//            self.anotherschoolpoints.text = String(anotherSchoolScores)
+//                        
+//            self.anotherschoolname.text = (userDefaults.objectForKey("schoolnamedictionary") as![String:String])[self.schoolname.text!]
+//            
+//            self.anotherschoolname.setNeedsDisplay()
+//            self.anotherschoolpoints.setNeedsDisplay()
    
         })
 
@@ -116,8 +122,81 @@ class ScoreboardViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.navigationBarHidden = false
+        
+        
+        
+        var paramsSchoolname = ["SchoolName":(PFUser.currentUser()!.objectForKey("schoolname")?.lowercaseString)!]
+        
+        anotherschoolname.text = (userDefaults.objectForKey("schoolnamedictionary") as![String:String])[schoolname.text!]
+        
+        
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+        
+        self.manager.POST("http://www.consoaring.com/PointService.svc/totalschoolpoints", parameters: paramsSchoolname, success: {
+            (task, response) in
+            
+            print(response)
+            var responseDict = response as! [String:Int]
+            
+            if let totalps =  responseDict["totalpoints"] {
+                
+                self.schoolpoints.text = String(totalps)
+                
+                self.schoolname.text = PFUser.currentUser()!.objectForKey("schoolname") as! String
+                
+                self.schoolname.setNeedsDisplay()
+                self.schoolpoints.setNeedsDisplay()
+
+                
+            }
+            
+            
+            
+            }, failure: {
+                (task, error) in
+                print(error.localizedDescription)
+                
+        })
+
+        var paramsAnotherSchoolname = ["SchoolName": anotherschoolname.text!.lowercaseString]
+        
+        
+        self.manager.POST("http://www.consoaring.com/PointService.svc/totalschoolpoints", parameters: paramsAnotherSchoolname, success: {
+            (task, response) in
+            
+            print(response)
+            var responseDict = response as! [String:Int]
+            
+            if let totalps =  responseDict["totalpoints"] {
+                
+                            
+                self.anotherschoolpoints.text = String(totalps)
+                
+                self.anotherschoolname.text = (self.userDefaults.objectForKey("schoolnamedictionary") as![String:String])[self.schoolname.text!]
+                
+                self.anotherschoolname.setNeedsDisplay()
+                self.anotherschoolpoints.setNeedsDisplay()
+
+                
+                
+            }
+            
+            
+            
+            }, failure: {
+                (task, error) in
+                print(error.localizedDescription)
+                
+        })
+
+        
 
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation

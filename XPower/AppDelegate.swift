@@ -12,6 +12,8 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static var recentTasksinstance: RecentTasksTableViewController?
+    
     static var schoolName:String?
     
     static var modalViewShow:Bool?

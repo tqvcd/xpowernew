@@ -7,10 +7,14 @@
 
 import UIKit
 import Parse
+import AFNetworking
+
 
 class ChangePasswordViewController: UIViewController {
     
     let helper = TouchIdKeyChainHelper()
+    let myKeychainwrapper = KeychainWrapper()
+
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
 
@@ -62,6 +66,32 @@ class ChangePasswordViewController: UIViewController {
                 
                 print("update password error")
             }
+            
+            
+            
+            var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+            
+            manager.requestSerializer = AFJSONRequestSerializer()
+            manager.responseSerializer = AFJSONResponseSerializer()
+            manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+            
+            var parametersChangePassword = ["Username":PFUser.currentUser()!.username!, "Password":passwordagain.text!]
+            
+            
+            self.myKeychainwrapper.mySetObject(passwordagain.text!, forKey: kSecValueData)
+            self.myKeychainwrapper.writeToKeychain()
+            
+            manager.POST("http://www.consoaring.com/UserService.svc/changepassword", parameters: parametersChangePassword, success: {
+                (task, response) in
+                
+                }, failure: {
+                    (task, error) in
+                    print(error.localizedDescription)
+                    
+            })
+
+            
+    
             
             userDefaults.setObject(passwordagain.text!, forKey: "loginPwd")
             userDefaults.setObject(PFUser.currentUser()!.username!, forKey: "username")

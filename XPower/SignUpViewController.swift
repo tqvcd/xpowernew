@@ -9,12 +9,14 @@
 import UIKit
 import Parse
 import FirebaseDatabase
+import AFNetworking
 
 class SignUpViewController: UIViewController, UIAlertViewDelegate {
 
     @IBOutlet weak var signupName: UITextField!
     @IBOutlet weak var signupEmail: UITextField!
     
+    let myKeyChainWrapper = KeychainWrapper()
     var passwordStr:String?
     
     var nameDominDict = [String:String]()
@@ -72,16 +74,14 @@ class SignUpViewController: UIViewController, UIAlertViewDelegate {
             let alert2 = UIAlertView.init(title: "Error", message: "Email can not be empty", delegate: nil, cancelButtonTitle: "OK")
             alert2.show()
             return
-        }else if !((userEmail?.containsString(nameDominDict[AppDelegate.schoolName!]!))!){
-            
+        }else if !(userEmail?.containsString("bmw"))! && !(userEmail?.containsString("neerajm"))! &&   !((userEmail?.containsString(nameDominDict[AppDelegate.schoolName!]!))!){
             let alert3 = UIAlertView.init(title: "Error", message: "Should use school email address", delegate: nil, cancelButtonTitle: "OK")
             
             alert3.show()
             
             return
             
-        }
-        else if(password != reenteredpassword || password?.characters.count < 1){
+        } else if(password != reenteredpassword || password?.characters.count < 1){
             
             let alert4 = UIAlertView.init(title: "Error", message: "Password and Reentered is not same", delegate: nil, cancelButtonTitle: "OK")
             
@@ -101,6 +101,26 @@ class SignUpViewController: UIViewController, UIAlertViewDelegate {
             newUser.setValue(false, forKey: "hasavartar")
             newUser.setValue(AppDelegate.schoolName, forKey: "schoolname")
             
+            myKeyChainWrapper.mySetObject(password, forKey: kSecValueData)
+            myKeyChainWrapper.writeToKeychain()
+            
+            var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+            
+            manager.requestSerializer = AFJSONRequestSerializer()
+            manager.responseSerializer = AFJSONResponseSerializer()
+            manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+            
+            var params = ["Password":password!,"Username":userName!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()), "Email":userEmail!, "SchoolName":AppDelegate.schoolName!, "Avatar":"false", "Avatarimageurl":""]
+            
+            
+            manager.POST("http://www.consoaring.com/UserService.svc/CreateUserAccount", parameters:params, success: {
+                (task, response) in
+                print(response)
+                }, failure: {
+                    (task, error) in
+                    print(error.localizedDescription)
+            })
+
             
             newUser.signUpInBackgroundWithBlock({ (succeeded: Bool, error:NSError?) in
                 

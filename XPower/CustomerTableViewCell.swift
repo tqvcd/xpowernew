@@ -95,6 +95,7 @@ class CustomerTableViewCell: UITableViewCell {
         manager.POST("http://www.consoaring.com/PointService.svc/adddeeds", parameters: paramsUserAddDeeds, success: {
             (task, response) in
             print(response)
+             NSNotificationCenter.defaultCenter().postNotificationName("addtasks", object: self)
             
             }, failure: {
                 (task, error) in
@@ -102,6 +103,7 @@ class CustomerTableViewCell: UITableViewCell {
                 
         })
         
+       
         
         
         let rootRef = FIRDatabase.database().reference()
@@ -118,7 +120,7 @@ class CustomerTableViewCell: UITableViewCell {
         
         totalScoreItem.setValue(totalScoreMessage)
         
-        schoolTotalScore.setValue(totalScoreMessage)
+        schooltotalScoreItem.setValue(totalScoreMessage)
 
 
         

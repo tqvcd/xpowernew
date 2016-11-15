@@ -52,10 +52,15 @@ class HomeScreenViewController: UIViewController {
     
     var totalScores = 0
     
+    var manager = AFHTTPSessionManager.init(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(RecentTasksTableViewController.sharedRecentTasksInstance, selector:#selector(RecentTasksTableViewController.sharedRecentTasksInstance.updateRecentTasks), name: "addtasks", object: nil)
+        
         
         let img = UIImage(named: "homescreenbackground")
         
@@ -276,19 +281,19 @@ class HomeScreenViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), {
                 
                 
-                self.totalscoreLabel.text = String(AppDelegate.totalScores)
-                
-                self.totalscoreLabel.setNeedsDisplay()
-                
-                
-                self.totalallscoreslabel.text = String(AppDelegate.totalAllScores)
-                
-                self.totalallscoreslabel.setNeedsDisplay()
-                
-
-                AppDelegate.totalScores = 0
-                
-                AppDelegate.totalAllScores = 0
+//                self.totalscoreLabel.text = String(AppDelegate.totalScores)
+//                
+//                self.totalscoreLabel.setNeedsDisplay()
+//                
+//                
+//                self.totalallscoreslabel.text = String(AppDelegate.totalAllScores)
+//                
+//                self.totalallscoreslabel.setNeedsDisplay()
+//                
+//
+//                AppDelegate.totalScores = 0
+//                
+//                AppDelegate.totalAllScores = 0
                 
             })
             
@@ -301,6 +306,86 @@ class HomeScreenViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.navigationBarHidden = true
+        
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            
+            
+            self.manager.requestSerializer = AFJSONRequestSerializer()
+            self.manager.responseSerializer = AFJSONResponseSerializer()
+            self.manager.requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-type")
+
+            
+            var paramsUsername = ["Username": PFUser.currentUser()!.username!]
+            
+            self.manager.POST("http://www.consoaring.com/PointService.svc/dailypoints", parameters: paramsUsername, success: {
+                (task, response) in
+                
+//                self.totalscoreLabel.text = String(AppDelegate.totalScores)
+//                //
+//                //                self.totalscoreLabel.setNeedsDisplay()
+                
+                print(response)
+                
+                var responseDict = response as! [String:Int]
+                
+                if let totalps =  responseDict["dailypoints"] {
+                    
+                    self.totalscoreLabel.text = String(totalps)
+                    
+                    self.totalscoreLabel.setNeedsDisplay()
+                    
+                }
+                
+                               
+                
+                }, failure: {
+                    (task, error) in
+                    print(error.localizedDescription)
+                    
+            })
+
+            
+            
+            
+            var paramsSchoolname = ["SchoolName":(PFUser.currentUser()!.objectForKey("schoolname")?.lowercaseString)!]
+            
+            
+            print(paramsSchoolname)
+            
+            self.manager.POST("http://www.consoaring.com/PointService.svc/totalschoolpoints", parameters: paramsSchoolname, success: {
+                (task, response) in
+                
+                
+                var responseDict = response as! [String:Int]
+                
+                if let totalps =  responseDict["totalpoints"] {
+                    
+                    self.totalallscoreslabel.text = String(totalps)
+                    
+                    self.totalallscoreslabel.setNeedsDisplay()
+                    
+                }
+                
+                
+                
+                }, failure: {
+                    (task, error) in
+                    print(error.localizedDescription)
+                    
+            })
+
+            
+            
+         
+            
+            
+            
+            
+            
+        })
+        
         
     }
     
