@@ -74,7 +74,7 @@ class SignUpViewController: UIViewController, UIAlertViewDelegate {
             let alert2 = UIAlertView.init(title: "Error", message: "Email can not be empty", delegate: nil, cancelButtonTitle: "OK")
             alert2.show()
             return
-        }else if !(userEmail?.containsString("bmw"))! && !(userEmail?.containsString("neerajm"))! &&   !((userEmail?.containsString(nameDominDict[AppDelegate.schoolName!]!))!){
+        }else if !(userEmail?.containsString("test"))! && !(userEmail?.containsString("neerajm"))! &&   !((userEmail?.containsString(nameDominDict[AppDelegate.schoolName!]!))!){
             let alert3 = UIAlertView.init(title: "Error", message: "Should use school email address", delegate: nil, cancelButtonTitle: "OK")
             
             alert3.show()
