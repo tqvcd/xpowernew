@@ -89,16 +89,24 @@ class LoginViewController: UIViewController {
                 var responseDict = response as! [String:AnyObject]
                 
                 if ((responseDict["result"]?.containsString("Failure")) != nil) {
+                    
+                    let alertView = UIAlertView.init(title: "Error", message: "Invalid crendtial", delegate: self, cancelButtonTitle: "OK")
+                    alertView.show()
                     return
                 }
                 
                 
                 var password = self.myKeychainwrapper.myObjectForKey("v_Data") as? String
                 
-                if password == nil {
+                if password == "password" {
                     
                     self.myKeychainwrapper.mySetObject(self.loginPassword!, forKey: kSecValueData)
                     self.myKeychainwrapper.writeToKeychain()
+                    self.loginPassword = "11"
+                    
+                    self.loginBackground()
+
+                    
                 }else{
                     
                     if password != self.loginPassword!{

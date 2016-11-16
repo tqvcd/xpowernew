@@ -57,11 +57,12 @@ class ResetPasswordViewController: UIViewController {
         
         print(self.resetpassword.text!)
         
-        
         manager.POST("http://www.consoaring.com/UserService.svc/resetpassword", parameters: parametersResetEmail, success: {
             (task, response) in
             
                print(response)
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "reset")
+
             
             }, failure: {
                 (task, error) in

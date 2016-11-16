@@ -40,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         defaults.setBool(true, forKey: "tabimagesize")
-        
-        
 
         FIRApp.configure()
         

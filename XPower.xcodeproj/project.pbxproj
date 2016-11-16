@@ -45,6 +45,7 @@
 		55BA51BF1D871525007C0F69 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51BE1D871525007C0F69 /* ChangePasswordViewController.swift */; };
 		55BA51C11D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BA51C01D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift */; };
 		55C060A21DD5A928006531CB /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C060A11DD5A928006531CB /* KeychainWrapper.m */; };
+		55C060A41DDBCA26006531CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C060A31DDBCA26006531CB /* User.swift */; };
 		55C56BF01DD36F2C00E5ABD3 /* FriendAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BED1DD36F2C00E5ABD3 /* FriendAddViewController.swift */; };
 		55C56BF11DD36F2C00E5ABD3 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BEE1DD36F2C00E5ABD3 /* FriendsTableViewController.swift */; };
 		55C56BF21DD36F2C00E5ABD3 /* InvitationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C56BEF1DD36F2C00E5ABD3 /* InvitationTableViewController.swift */; };
@@ -98,6 +99,7 @@
 		55BA51C01D872530007C0F69 /* TurnOnOrOffTouchIdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnOnOrOffTouchIdViewController.swift; sourceTree = "<group>"; };
 		55C060A01DD5A928006531CB /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		55C060A11DD5A928006531CB /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		55C060A31DDBCA26006531CB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		55C56BED1DD36F2C00E5ABD3 /* FriendAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddViewController.swift; sourceTree = "<group>"; };
 		55C56BEE1DD36F2C00E5ABD3 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		55C56BEF1DD36F2C00E5ABD3 /* InvitationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationTableViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				5524006E1DD2686600025F47 /* RecentTasksTableViewController.swift */,
 				55C56BF31DD372B100E5ABD3 /* CustomerCellView.xib */,
 				55C56BF51DD3784B00E5ABD3 /* CustomerTableViewCell.swift */,
+				55C060A31DDBCA26006531CB /* User.swift */,
 			);
 			path = XPower;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				555F4A6F1D81CBA300DFEDB6 /* UploadAvartarViewController.swift in Sources */,
 				55BA51BF1D871525007C0F69 /* ChangePasswordViewController.swift in Sources */,
 				55C56BF21DD36F2C00E5ABD3 /* InvitationTableViewController.swift in Sources */,
+				55C060A41DDBCA26006531CB /* User.swift in Sources */,
 				553BEE931D83110D00EA585E /* EmailHandler.swift in Sources */,
 				558E29A61D826B4700288848 /* TouchIdKeyChainHelper.m in Sources */,
 				5592AAE91D887D2F000FD135 /* InvitationObservation.swift in Sources */,
